@@ -45,6 +45,7 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color) !important;
+  
 }
 
 ul {
@@ -342,15 +343,31 @@ a {
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.4);
 }
+.footer {
+  width: 100%;
+  background-color: hsl(220, 24%, 12%);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
   /* main */
 .main-content {
+  flex: 1;
   padding-top: 6.5rem !important;
 }
   
-  
+
   @media screen and (max-width: 768px) {
     .main-content {
       padding-top: 6rem; /* 手機上 navbar 較高 */
     }
   }
+  
   

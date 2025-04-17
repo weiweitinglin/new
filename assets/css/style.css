@@ -9,4 +9,16 @@
   .main-content {
     padding-top: var(--header-height);
   }
+  .footer {
+    width: 100%;
+    background-color: hsl(220, 24%, 12%);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+  }
   
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
