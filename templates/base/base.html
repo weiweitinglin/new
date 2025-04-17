@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <script src="{% static 'js/navbar.js' %}"></script>
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+    {% endblock %}
+    <title>
+        {% block title %}
+            Hello Django
+        {% endblock title %}
+    </title>
+    
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    {% block navbar %}{% endblock navbar %}
+    <main class="main-content flex-grow-1 container py-5" style="padding-top: 6.5rem !important;">
+        {% block main %}
+        {% endblock %}
+    </main>
+      
+
+    {% include "base/footer.html" %}
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+
+{% block title %}動畫展示{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/animations.css' %}">
+{% endblock %}
+
+
+{% block navbar %}
+  {% include "base/navbar.html" %}
+{% endblock %}
+
+{% block main %}
+<!-- 載入 Tailwind + Vue -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+<div id="app" class="flex flex-col lg:flex-row gap-6 p-8 bg-black text-white min-h-screen">
+  <!-- 左邊：Vue 元件動畫區 -->
+  <div class="flex-1 flex items-center justify-center bg-neutral-900 rounded-lg p-6">
+    <shimmer-button></shimmer-button>
+  </div>
+
+  <!-- 右邊：程式碼區 -->
+<div class="flex-1 bg-neutral-800 rounded-lg p-6 overflow-auto">
+    <h2 class="text-lg mb-4 font-bold">ShimmerButton 原始碼</h2>
+  
+    <!-- 切換 tabs -->
+    <div class="flex gap-2 mb-4">
+      <button class="tab-button" @click="activeTab = 'html'">HTML</button>
+      <button class="tab-button" @click="activeTab = 'js'">JavaScript</button>
+      <button class="tab-button" @click="activeTab = 'css'">CSS</button>
+    </div>
+  
+    <!-- 原始碼區塊（會根據 tab 切換） -->
+    <pre class="relative bg-neutral-900 p-4 rounded text-sm text-green-300 whitespace-pre-wrap">
+      <code v-if="activeTab === 'html'">
+  &lt;template&gt;
+    &lt;div class="shimmer-button"&gt;
+      &lt;span&gt;Shimmer Button&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+  
+      </code>
+      <code v-if="activeTab === 'js'">
+        <pre><code>{{ 
+                            
+        }}</code></pre>
+      </code>
+      <code v-if="activeTab === 'css'">
+  .shimmer-button {
+    position: relative;
+    padding: 1rem 2rem;
+    background: #1f1f1f;
+    color: white;
+    ...
+  }
+      </code>
+  
+      <!-- 複製按鈕 -->
+      <button class="absolute top-2 right-2 text-xs bg-gray-700 text-white px-2 py-1 rounded" @click="copyCode">
+        Copy
+      </button>
+    </pre>
+  </div>
+  
+<!-- 掛載 Vue -->
+<script type="module" src="{% static 'js/app.js' %}"></script>
+{% endblock %}
